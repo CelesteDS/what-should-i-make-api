@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -14,11 +14,11 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.static(`${ROOT_DIR}/public`))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(routes)
 
 app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}...`) //eslint-disable-line no-console
+  console.log(`Listening on http://localhost:${PORT}...`)
 })

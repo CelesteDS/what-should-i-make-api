@@ -8,13 +8,17 @@
   },
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "mocha --recursive test/"
+    "test": "mocha --recursive test/",
+    "db:reset": "dropdb recipe_maker_development; createdb recipe_maker_development",
+    "db:schema": "psql -d recipe_maker_development < src/db/schema.sql",
+    "db:seed": "node src/db/seed-data.js"
   },
   "author": "Celeste De Santiago (celestedaphne@gmail.com)",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "connect-pg-simple": "^4.2.1",
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
@@ -25,6 +29,12 @@
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "mocha": "^5.0.0",
-    "nodemon": "^1.14.12"
+    "nodemon": "^1.14.12",
+    "ajv": "^5.2.2",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0"
   }
 }
